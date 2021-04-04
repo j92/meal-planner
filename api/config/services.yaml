@@ -29,3 +29,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\DataPersister\RecipeDataPersister:
+        decorates: 'api_platform.doctrine.orm.data_persister'
+
+    App\Context\User\UserContext: ~
+    App\Context\User\StaticUserContext: ~
+    App\Context\User\UserContextInterface: '@App\Context\User\StaticUserContext'

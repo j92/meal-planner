@@ -4,21 +4,21 @@ declare(strict_types=1);
 namespace App\DataPersister;
 
 use ApiPlatform\Core\DataPersister\ContextAwareDataPersisterInterface;
-use App\Context\UserContextInterface;
+use App\Context\User\UserContextInterface;
 use App\Entity\Recipe;
 
 final class RecipeDataPersister implements ContextAwareDataPersisterInterface
 {
-//    private ContextAwareDataPersisterInterface $decoratedPersister;
-//    private UserContextInterface $userContext;
-//
-//    public function __construct(
-//        ContextAwareDataPersisterInterface $decoratedPersister,
-//        UserContextInterface $userContext
-//    ) {
-//        $this->decoratedPersister = $decoratedPersister;
-//        $this->userContext = $userContext;
-//    }
+    private ContextAwareDataPersisterInterface $decoratedPersister;
+    private UserContextInterface $userContext;
+
+    public function __construct(
+        ContextAwareDataPersisterInterface $decoratedPersister,
+        UserContextInterface $userContext
+    ) {
+        $this->decoratedPersister = $decoratedPersister;
+        $this->userContext = $userContext;
+    }
 
     public function supports($data, array $context = []): bool
     {
@@ -27,7 +27,7 @@ final class RecipeDataPersister implements ContextAwareDataPersisterInterface
 
     public function persist($data, array $context = [])
     {
-        if ($data instanceof Recipe) {
+        if ($data instanceof Recipe && $data->getOwner() === null) {
             $user = $this->userContext->getUser();
 
             $data->setOwner($user);

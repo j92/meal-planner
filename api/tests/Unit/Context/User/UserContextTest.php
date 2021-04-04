@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Unit\Context;
+namespace App\Tests\Unit\Context\User;
 
 use App\Context\User\UserContext;
 use App\Context\User\UserNotFound;
