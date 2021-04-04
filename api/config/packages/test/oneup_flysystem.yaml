@@ -1,0 +1,4 @@
+oneup_flysystem:
+    adapters:
+        memory_adapter:
+            memory: ~

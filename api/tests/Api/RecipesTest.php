@@ -14,7 +14,7 @@ class RecipesTest extends ApiTestCase
     {
         $response = static::createClient()->request('POST', '/recipes', ['json' => [
             'name' => 'Pizza Hawaii',
-            'sourceUrl' => 'https://pizza.hawaii'
+            'sourceUrl' => 'https://sallysbakingaddiction.com/hawaiian-pizza/'
         ]]);
 
         $this->assertResponseStatusCodeSame(201);
@@ -22,7 +22,7 @@ class RecipesTest extends ApiTestCase
             '@context' => '/contexts/Recipe',
             '@type' => 'Recipe',
             'name' => 'Pizza Hawaii',
-            'sourceUrl' => 'https://pizza.hawaii'
+            'sourceUrl' => 'https://sallysbakingaddiction.com/hawaiian-pizza/'
         ]);
 
         $this::assertMatchesRegularExpression('~^/recipes/\d+$~', $response->toArray()['@id']);

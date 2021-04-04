@@ -35,3 +35,9 @@ services:
     App\Context\User\UserContext: ~
     App\Context\User\StaticUserContext: ~
     App\Context\User\UserContextInterface: '@App\Context\User\StaticUserContext'
+    
+    App\Core\Service\Recipe\RecipeService: ~
+    App\Core\Service\RecipeServiceInterface: '@App\Core\Service\Recipe\RecipeService'
+
+    App\Core\Recipe\Downloader\SavingHttpDownloader:
+    App\Core\Recipe\RecipeDownloaderInterface: '@App\Core\Recipe\Downloader\SavingHttpDownloader'

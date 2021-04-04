@@ -169,8 +169,14 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.2.0"
     },
+    "league/flysystem": {
+        "version": "2.0.4"
+    },
     "league/html-to-markdown": {
         "version": "4.10.0"
+    },
+    "league/mime-type-detection": {
+        "version": "1.7.0"
     },
     "monolog/monolog": {
         "version": "2.2.0"
@@ -208,6 +214,15 @@
     },
     "ocramius/package-versions": {
         "version": "1.9.0"
+    },
+    "oneup/flysystem-bundle": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "4.0",
+            "ref": "3ae1b83985e89138f5443bbc2d9b8c074b497d49"
+        }
     },
     "phar-io/manifest": {
         "version": "2.0.1"
@@ -334,6 +349,9 @@
     "sebastian/version": {
         "version": "3.0.2"
     },
+    "symfony/amqp-messenger": {
+        "version": "v5.2.4"
+    },
     "symfony/asset": {
         "version": "v5.2.4"
     },
@@ -384,6 +402,9 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v5.2.4"
+    },
+    "symfony/doctrine-messenger": {
+        "version": "v5.2.5"
     },
     "symfony/dom-crawler": {
         "version": "v5.2.4"
@@ -477,6 +498,18 @@
             "config/packages/mercure.yaml"
         ]
     },
+    "symfony/messenger": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "e9a414b113ceadbf4e52abe37bf8f1b443f06ccb"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
+    },
     "symfony/monolog-bridge": {
         "version": "v5.2.4"
     },
@@ -532,6 +565,9 @@
         "version": "v5.2.4"
     },
     "symfony/property-info": {
+        "version": "v5.2.4"
+    },
+    "symfony/redis-messenger": {
         "version": "v5.2.4"
     },
     "symfony/routing": {

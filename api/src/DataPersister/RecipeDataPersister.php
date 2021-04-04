@@ -4,20 +4,16 @@ declare(strict_types=1);
 namespace App\DataPersister;
 
 use ApiPlatform\Core\DataPersister\ContextAwareDataPersisterInterface;
-use App\Context\User\UserContextInterface;
+use App\Core\Service\RecipeServiceInterface;
 use App\Entity\Recipe;
 
 final class RecipeDataPersister implements ContextAwareDataPersisterInterface
 {
-    private ContextAwareDataPersisterInterface $decoratedPersister;
-    private UserContextInterface $userContext;
+    private RecipeServiceInterface $recipeService;
 
-    public function __construct(
-        ContextAwareDataPersisterInterface $decoratedPersister,
-        UserContextInterface $userContext
-    ) {
-        $this->decoratedPersister = $decoratedPersister;
-        $this->userContext = $userContext;
+    public function __construct(RecipeServiceInterface $recipeService)
+    {
+        $this->recipeService = $recipeService;
     }
 
     public function supports($data, array $context = []): bool
@@ -27,17 +23,13 @@ final class RecipeDataPersister implements ContextAwareDataPersisterInterface
 
     public function persist($data, array $context = [])
     {
-        if ($data instanceof Recipe && $data->getOwner() === null) {
-            $user = $this->userContext->getUser();
-
-            $data->setOwner($user);
+        if ($data instanceof Recipe && $data->getId() === null) {
+            return $this->recipeService->createRecipe($data);
         }
-
-        return $this->decoratedPersister->persist($data);
     }
 
     public function remove($data, array $context = [])
     {
-        return $this->decoratedPersister->remove($data);
+        return $this->recipeService->createRecipe($data);
     }
 }
