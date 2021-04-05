@@ -27,11 +27,9 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
     App\DataPersister\RecipeDataPersister:
         decorates: 'api_platform.doctrine.orm.data_persister'
-
+        
     App\Context\User\UserContext: ~
     App\Context\User\StaticUserContext: ~
     App\Context\User\UserContextInterface: '@App\Context\User\StaticUserContext'
@@ -39,5 +37,8 @@ services:
     App\Core\Service\Recipe\RecipeService: ~
     App\Core\Service\RecipeServiceInterface: '@App\Core\Service\Recipe\RecipeService'
 
+    App\Core\Plan\Service\PlanService: ~
+    App\Core\Plan\PlanServiceInterface: '@App\Core\Plan\Service\PlanService'
+        
     App\Core\Recipe\Downloader\SavingHttpDownloader:
     App\Core\Recipe\RecipeDownloaderInterface: '@App\Core\Recipe\Downloader\SavingHttpDownloader'
