@@ -30,6 +30,6 @@ final class RecipeDataPersister implements ContextAwareDataPersisterInterface
 
     public function remove($data, array $context = [])
     {
-        return $this->recipeService->createRecipe($data);
+        $this->recipeService->removeRecipe($data);
     }
 }

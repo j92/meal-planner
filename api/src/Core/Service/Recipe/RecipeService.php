@@ -64,6 +64,7 @@ final class RecipeService implements RecipeServiceInterface
     public function removeRecipe(Recipe $recipe): void
     {
         $this->entityManager->remove($recipe);
+        $this->entityManager->flush();
     }
 
     public function downloadRecipeFromSourceUrl(int $recipeId): void

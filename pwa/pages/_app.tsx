@@ -1,10 +1,14 @@
 // import App from "next/app";
-import type { AppProps /*, AppContext */ } from "next/app";
+import "../styles/global.css"
+import type {AppProps /*, AppContext */} from "next/app";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Layout from "../components/common/Layout";
 
-function MyApp({ Component, pageProps }: AppProps) {
-    return <Component {...pageProps} />;
+function MyApp({Component, pageProps}: AppProps) {
+    return <Layout>
+        <Component {...pageProps} />
+    </Layout>;
 }
 
 // Only uncomment this method if you have blocking data requirements for

@@ -41,7 +41,6 @@ class Recipe
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="recipes")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"read"})
      */
     private $owner;
 
@@ -52,6 +51,7 @@ class Recipe
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"read"})
      */
     private $createdAt;
 
